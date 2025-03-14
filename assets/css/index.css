@@ -30,7 +30,7 @@ body {
   background: linear-gradient(145deg, #ff3a3a, #d10000);
   border: solid white 3px;
   color: white;
-  font-size: 56px;
+  font-size: 70px;
   font-weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
@@ -42,7 +42,8 @@ body {
   border: solid white 20px;
 }
 .container .button-container .panic-button:active {
-  font-size: 70px;
+  border: solid white 3px;
+  font-size: 56px;
 }
 
 /*# sourceMappingURL=index.css.map */
