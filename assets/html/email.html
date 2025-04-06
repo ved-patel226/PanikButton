@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/email.css">
+        <title>PanikButton</title>
+        <style>
+            /* Hide the problem group initially */
+            #problem-group {
+                opacity: 0;
+            }
+            /* Hide the submit button initially */
+            #submit-link {
+                opacity: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="text-group-container">
+            <div class="text-group">
+                <p>What is your StudentID?</p>
+                <input type="text" id="student-id">
+            </div>
+
+            <div class="text-group" id="problem-group">
+                <p>What seems to be the problem?</p>
+                <textarea id="problem-text" cols="40" rows="5"></textarea>
+            </div>
+
+            <a class="btn" href="/submit" id="submit-link">Submit</a>
+        </div>
+        
+        <script>
+            const studentInput = document.getElementById('student-id');
+            const problemGroup = document.getElementById('problem-group');
+            const problemText = document.getElementById('problem-text');
+            const submitLink = document.getElementById('submit-link');
+
+            studentInput.addEventListener('blur', function() {
+                if (this.value.trim() !== '') {
+                    // Reveal the problem entry section
+                    problemGroup.style.opacity = "1";
+                }
+            });
+
+            problemText.addEventListener('input', function() {
+                if (this.value.trim() !== '') {
+                    // Show the submit button when there is content in the textarea
+                    submitLink.style.opacity = "1";
+                } else {
+                    submitLink.style.opacity = "0";
+                }
+            });
+
+            submitLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                const studentValue = btoa(studentInput.value.trim());
+                const problemValue = btoa(problemText.value.trim());
+                const url = `/submit?studentId=${studentValue}&problem=${problemValue}`;
+                window.location.href = url;
+            });
+        </script>
+    </body>
+</html>

@@ -7,14 +7,18 @@ use lettre::{
 };
 use std::env;
 
-pub fn send_email(target_email: &str) -> Result<(), Box<dyn std::error::Error>> {
+pub fn send_email(
+    target_email: &str,
+    subject: &str,
+    body: &str
+) -> Result<(), Box<dyn std::error::Error>> {
     // Build the email
 
     let email = Message::builder()
         .from("PanikButton <panikbuttonypar@gmail.com>".parse()?)
         .to(format!("User <{}>", target_email).parse()?)
-        .subject("Test email from Rust")
-        .body(String::from("This is a test email sent from Rust using Gmail SMTP!"))?;
+        .subject(subject)
+        .body(String::from(body))?;
 
     // Gmail SMTP credentials setup
     let gmail_address = "panikbuttonypar@gmail.com";
