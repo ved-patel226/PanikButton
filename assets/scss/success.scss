@@ -1,0 +1,39 @@
+.success-container {
+    text-align: center;
+    color: white;
+    max-width: 600px;
+
+    .success-icon {
+        font-size: 100px;
+        margin-bottom: 30px;
+        color: #00cc66;
+    }
+
+    .success-message {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .success-details {
+        font-size: 18px;
+        margin-bottom: 50px;
+        opacity: 0.8;
+    }
+
+    .home-button {
+        background-color: #00cc66;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #00aa55;
+            transform: scale(1.05);
+        }
+    }
+}
